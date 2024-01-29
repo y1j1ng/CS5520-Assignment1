@@ -18,9 +18,12 @@ const styles = StyleSheet.create({
     shadowColor: "grey",
     shadowOpacity: 0.3,
     shadowRadius: 5,
+    marginHorizontal: 20,
+    marginTop: 50,
   },
   content: {
     marginHorizontal: 10,
     marginVertical: 10,
+    justifyContent: "space-between",
   },
 });

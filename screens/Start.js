@@ -27,14 +27,14 @@ export default function Start() {
     <View style={styles.container}>
       <Header style={styles.header} title={title} />
       <Card style={styles.card}>
-        <Text>Name</Text>
+        <Text style={styles.label}>Name</Text>
         <TextInput
           style={styles.input}
           value={name}
           onChangeText={changeNameHandler}
         />
 
-        <Text>Enter a Number</Text>
+        <Text style={styles.label}>Enter a Number</Text>
         <TextInput
           style={styles.input}
           value={number}
@@ -66,11 +66,17 @@ const styles = StyleSheet.create({
   card: {
     flex: 9,
   },
+  label: { fontSize: 20, color: "purple", margin: 5 },
   input: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "purple",
+    textAlign: "center",
     borderBottomWidth: 2,
     borderBottomColor: "purple",
-    width: "50%",
+    padding: 10,
+    marginBottom: 20,
   },
   buttonsContainer: { flexDirection: "row" },
-  buttonView: { width: "30%", margin: 5 },
+  buttonView: { width: "40%", margin: 5 },
 });
