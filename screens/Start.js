@@ -2,11 +2,13 @@ import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Card from "../components/Card";
+import Checkbox from "expo-checkbox";
 
 export default function Start() {
   const title = "Guess My Number";
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+  const [isChecked, setChecked] = useState(false);
 
   function changeNameHandler(changedName) {
     setName(changedName);
@@ -21,6 +23,7 @@ export default function Start() {
   function resetHandler() {
     setName("");
     setNumber("");
+    setChecked(false);
   }
 
   return (
@@ -42,6 +45,15 @@ export default function Start() {
           keyboardType="numeric"
           maxLength={4}
         />
+
+        <View style={styles.checkboxContainer}>
+          <Checkbox
+            style={styles.checkbox}
+            value={isChecked}
+            onValueChange={setChecked}
+          />
+          <Text style={styles.checkboxText}>I am not a robot</Text>
+        </View>
 
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonView}>
@@ -77,6 +89,8 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 20,
   },
+  checkboxContainer: { flexDirection: "row" },
+  checkboxText: { marginStart: 5, color: "purple" },
   buttonsContainer: { flexDirection: "row" },
   buttonView: { width: "40%", margin: 5 },
 });
