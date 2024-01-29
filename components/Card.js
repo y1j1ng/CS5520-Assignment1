@@ -1,14 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-export default function Card() {
+export default function Card({ children }) {
   return (
     <View style={styles.container}>
-      <View style={styles.content}>
-        <Text>Card</Text>
-        <Text>Card</Text>
-        <Text>Card</Text>
-      </View>
+      <View style={styles.content}>{children}</View>
     </View>
   );
 }

@@ -1,21 +1,35 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import Header from "./components/Header";
+import Start from "./screens/Start";
+import { useState } from "react";
 
 export default function App() {
-  const screen = "Guess My Number";
+  const [screen, setScreen] = useState("start");
+
+  function switchScreen(newScreen) {
+    setScreen(newScreen);
+  }
+
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <LinearGradient
         // Background Linear Gradient
         colors={["rgba(245, 245, 245, 0.8)", "transparent"]}
         style={styles.background}
       />
-      <Header screen={screen} />
-      <Text>Open up App.js to start working on your app!</Text>
+      <Start></Start>
+      {/* {screen === "start" && (
+        <Start switchScreen={switchScreen} style={styles.screen} />
+      )}
+      {screen === "game" && (
+        <Game switchScreen={switchScreen} style={styles.screen} />
+      )}
+      {screen === "final" && (
+        <Final switchScreen={switchScreen} style={styles.screen} />
+      )} */}
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
