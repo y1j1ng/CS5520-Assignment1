@@ -18,6 +18,21 @@ export default function Start() {
     setNumber(changedNumber);
   }
 
+  function validateInputs(inputName, inputNumber) {
+    // Validate name
+    const isNameValid = inputName.length > 1 && !/\d/.test(inputName);
+
+    // Validate number
+    const parsedNumber = parseInt(inputNumber);
+    const isNumberValid =
+      !isNaN(parsedNumber) && parsedNumber >= 1020 && parsedNumber <= 1029;
+
+    if (isNameValid && isNumberValid) {
+      confirmHandler;
+    } else {
+    }
+  }
+
   function confirmHandler() {}
 
   function resetHandler() {
@@ -57,10 +72,15 @@ export default function Start() {
 
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonView}>
-            <Button title="Reset" onPress={resetHandler} />
+            <Button title="Reset" onPress={resetHandler} color={"red"} />
           </View>
           <View style={styles.buttonView}>
-            <Button title="Confirm" onPress={confirmHandler} />
+            <Button
+              title="Confirm"
+              onPress={validateInputs}
+              color={isChecked ? "blue" : "white"}
+              disabled={!isChecked}
+            />
           </View>
         </View>
       </Card>
