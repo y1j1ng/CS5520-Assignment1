@@ -49,6 +49,7 @@ export default function App() {
     setIsWinner(false);
     setMyNumber(getRandomNumber());
     setGameState("start");
+    setChecked(false);
   }
 
   return (
@@ -83,7 +84,13 @@ export default function App() {
         onGameFinish={gameFinishHandler}
         setGameModalVisible={setGameModalVisible}
       />
-      {gameState === "final" && <Final isWinner={isWinner} />}
+      {gameState === "final" && (
+        <Final
+          isWinner={isWinner}
+          myNumber={myNumber}
+          resetGameHandler={resetGameHandler}
+        />
+      )}
       <StatusBar style="auto" />
     </SafeAreaView>
   );
