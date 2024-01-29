@@ -15,6 +15,7 @@ export default function App() {
   const [myNumber, setMyNumber] = useState(null);
   const [feedback, setFeedback] = useState("");
   const [isGameModalVisible, setGameModalVisible] = useState(false);
+  const [isChecked, setChecked] = useState(false);
 
   useEffect(() => {
     // Generate myNumber only once when the component mounts
@@ -63,6 +64,8 @@ export default function App() {
           setName={setName}
           number={number}
           setNumber={setNumber}
+          isChecked={isChecked}
+          setChecked={setChecked}
           checkNumberHandler={checkNumberHandler}
           setGameModalVisible={setGameModalVisible}
         />
@@ -75,6 +78,7 @@ export default function App() {
         feedback={feedback}
         attempts={attempts}
         setAttempts={setAttempts}
+        setChecked={setChecked}
         isWinner={isWinner}
         onGameFinish={gameFinishHandler}
         setGameModalVisible={setGameModalVisible}

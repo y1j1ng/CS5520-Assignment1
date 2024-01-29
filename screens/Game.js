@@ -9,6 +9,7 @@ export default function Game({
   attempts,
   setAttempts,
   isWinner,
+  setChecked,
   onGameFinish,
   isGameModalVisible,
   setGameModalVisible,
@@ -16,6 +17,7 @@ export default function Game({
   function handleContinue() {
     setAttempts(attempts - 1);
     setGameModalVisible(false);
+    setChecked(false);
   }
 
   function handleFinish() {

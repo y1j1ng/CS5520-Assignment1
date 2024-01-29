@@ -9,11 +9,12 @@ export default function Start({
   setName,
   number,
   setNumber,
+  isChecked,
+  setChecked,
   checkNumberHandler,
   setGameModalVisible,
 }) {
   const title = "Guess My Number";
-  const [isChecked, setChecked] = useState(false);
   const [nameError, setNameError] = useState("");
   const [numberError, setNumberError] = useState("");
 
