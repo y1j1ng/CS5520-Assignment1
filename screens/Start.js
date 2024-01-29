@@ -4,10 +4,15 @@ import Header from "../components/Header";
 import Card from "../components/Card";
 import Checkbox from "expo-checkbox";
 
-export default function Start() {
+export default function Start({
+  name,
+  setName,
+  number,
+  setNumber,
+  checkNumberHandler,
+  setGameModalVisible,
+}) {
   const title = "Guess My Number";
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
   const [isChecked, setChecked] = useState(false);
   const [nameError, setNameError] = useState("");
   const [numberError, setNumberError] = useState("");
@@ -44,7 +49,8 @@ export default function Start() {
   }
 
   function confirmHandler() {
-    console.log("Inputs are valid. Showing Game Screen...");
+    checkNumberHandler();
+    setGameModalVisible(true); // Set the Game modal to be visible
   }
 
   function resetHandler() {
