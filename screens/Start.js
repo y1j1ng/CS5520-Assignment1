@@ -9,36 +9,50 @@ export default function Start() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [isChecked, setChecked] = useState(false);
+  const [nameError, setNameError] = useState("");
+  const [numberError, setNumberError] = useState("");
 
   function changeNameHandler(changedName) {
     setName(changedName);
+    setNameError(""); // Clear error when name changes
   }
 
   function changeNumberHandler(changedNumber) {
     setNumber(changedNumber);
+    setNumberError(""); // Clear error when number changes
   }
 
-  function validateInputs(inputName, inputNumber) {
+  function validateInputs() {
     // Validate name
-    const isNameValid = inputName.length > 1 && !/\d/.test(inputName);
+    const isNameValid = name.length > 1 && !/\d/.test(name);
+    if (!isNameValid) {
+      setNameError("Please enter a valid name");
+    }
 
     // Validate number
-    const parsedNumber = parseInt(inputNumber);
+    const parsedNumber = parseInt(number);
     const isNumberValid =
       !isNaN(parsedNumber) && parsedNumber >= 1020 && parsedNumber <= 1029;
+    if (!isNumberValid) {
+      setNumberError("Please enter a valid number");
+    }
 
+    // Check if both inputs are valid
     if (isNameValid && isNumberValid) {
-      confirmHandler;
-    } else {
+      confirmHandler();
     }
   }
 
-  function confirmHandler() {}
+  function confirmHandler() {
+    console.log("Inputs are valid. Showing Game Screen...");
+  }
 
   function resetHandler() {
     setName("");
     setNumber("");
     setChecked(false);
+    setNameError("");
+    setNumberError("");
   }
 
   return (
@@ -51,6 +65,7 @@ export default function Start() {
           value={name}
           onChangeText={changeNameHandler}
         />
+        {nameError ? <Text style={styles.errorText}>{nameError}</Text> : null}
 
         <Text style={styles.label}>Enter a Number</Text>
         <TextInput
@@ -60,6 +75,9 @@ export default function Start() {
           keyboardType="numeric"
           maxLength={4}
         />
+        {numberError ? (
+          <Text style={styles.errorText}>{numberError}</Text>
+        ) : null}
 
         <View style={styles.checkboxContainer}>
           <Checkbox
@@ -107,10 +125,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: "purple",
     padding: 10,
-    marginBottom: 20,
+    marginBottom: 5,
   },
-  checkboxContainer: { flexDirection: "row" },
+  checkboxContainer: { flexDirection: "row", marginVertical: 30 },
   checkboxText: { marginStart: 5, color: "purple" },
   buttonsContainer: { flexDirection: "row" },
   buttonView: { width: "40%", margin: 5 },
+  errorText: {
+    color: "black",
+    margin: 3,
+  },
 });
