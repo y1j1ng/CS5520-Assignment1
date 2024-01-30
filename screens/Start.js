@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import Checkbox from "expo-checkbox";
+import StyledButton from "../components/StyledButton";
 
 export default function Start({
   name,
@@ -96,9 +97,7 @@ export default function Start({
         </View>
 
         <View style={styles.buttonsContainer}>
-          <View style={styles.buttonView}>
-            <Button title="Reset" onPress={resetHandler} color={"red"} />
-          </View>
+          <StyledButton title={"Reset"} onPress={resetHandler} color={"red"} />
           <View style={styles.buttonView}>
             <Button
               title="Confirm"

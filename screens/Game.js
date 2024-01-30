@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, Button, Modal } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Card from "../components/Card";
+import StyledButton from "../components/StyledButton";
 
 export default function Game({
   name,
@@ -36,22 +37,18 @@ export default function Game({
             {isWinner ? (
               <View>
                 <Text style={styles.feedback}>Congrats {name}! You won!</Text>
-                <View style={styles.buttonView}>
-                  <Button title="Thank You" onPress={handleFinish} />
-                </View>
+                <StyledButton title="Thank You" onPress={handleFinish} />
               </View>
             ) : (
               <View>
                 <Text
                   style={styles.feedback}
                 >{`Hello ${name}\nYou have chosen ${number}\nThat's not my number!\nGuess ${feedback}!\nYou have ${attempts} attempts left!`}</Text>
-                <View style={styles.buttonView}>
-                  <Button
-                    title="I am done"
-                    onPress={handleFinish}
-                    color={"red"}
-                  />
-                </View>
+                <StyledButton
+                  title="I am done"
+                  onPress={handleFinish}
+                  color={"red"}
+                />
                 <View style={styles.buttonView}>
                   <Button
                     title="Let Me Guess Again"

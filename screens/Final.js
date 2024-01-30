@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Button, Image } from "react-native";
 import React from "react";
 import Card from "../components/Card";
 import Header from "../components/Header";
+import StyledButton from "../components/StyledButton";
 
 export default function Final({ isWinner, myNumber, resetGameHandler }) {
   return (
@@ -24,9 +25,7 @@ export default function Final({ isWinner, myNumber, resetGameHandler }) {
             />
           )}
         </View>
-        <View style={styles.buttonView}>
-          <Button title="Start Again" onPress={resetGameHandler} />
-        </View>
+        <StyledButton title="Start Again" onPress={resetGameHandler} />
       </Card>
     </View>
   );
@@ -59,9 +58,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "purple",
     textAlign: "center",
-  },
-  buttonView: {
-    margin: 5,
-    width: "auto",
   },
 });
