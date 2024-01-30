@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Card from "../components/Card";
 import Checkbox from "expo-checkbox";
 import StyledButton from "../components/StyledButton";
+import Input from "../components/Input";
 
 export default function Start({
   name,
@@ -67,25 +68,18 @@ export default function Start({
     <View style={styles.container}>
       <Header style={styles.header} title={title} />
       <Card style={styles.card}>
-        <Text style={styles.label}>Name</Text>
-        <TextInput
-          style={styles.input}
+        <Input
+          label="Name"
           value={name}
           onChangeText={changeNameHandler}
+          error={nameError}
         />
-        {nameError ? <Text style={styles.errorText}>{nameError}</Text> : null}
-
-        <Text style={styles.label}>Enter a Number</Text>
-        <TextInput
-          style={styles.input}
+        <Input
+          label="Enter a Number"
           value={number}
           onChangeText={changeNumberHandler}
-          keyboardType="numeric"
-          maxLength={4}
+          error={numberError}
         />
-        {numberError ? (
-          <Text style={styles.errorText}>{numberError}</Text>
-        ) : null}
 
         <View style={styles.checkboxContainer}>
           <Checkbox
@@ -122,23 +116,8 @@ const styles = StyleSheet.create({
   card: {
     flex: 9,
   },
-  label: { fontSize: 20, color: "purple", margin: 5 },
-  input: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "purple",
-    textAlign: "center",
-    borderBottomWidth: 2,
-    borderBottomColor: "purple",
-    padding: 10,
-    marginBottom: 5,
-  },
   checkboxContainer: { flexDirection: "row", marginVertical: 30 },
   checkboxText: { marginStart: 5, color: "purple" },
   buttonsContainer: { flexDirection: "row", justifyContent: "space-around" },
   buttonView: { width: "40%", margin: 5 },
-  errorText: {
-    color: "black",
-    margin: 3,
-  },
 });
