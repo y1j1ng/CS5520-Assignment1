@@ -5,6 +5,7 @@ import Start from "./screens/Start";
 import Game from "./screens/Game";
 import Final from "./screens/Final";
 import { useState, useEffect } from "react";
+import { Color } from "./helpers/Color";
 
 export default function App() {
   const [gameState, setGameState] = useState("start"); // Possible values: 'start', 'final'
@@ -56,7 +57,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <LinearGradient
         // Background Linear Gradient
-        colors={["rgba(245, 245, 245, 0.8)", "mediumorchid"]}
+        colors={[Color.backgroundLight, Color.primary]}
         style={styles.background}
       />
       {gameState === "start" && (

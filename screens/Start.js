@@ -5,6 +5,7 @@ import Card from "../components/Card";
 import Checkbox from "expo-checkbox";
 import StyledButton from "../components/StyledButton";
 import Input from "../components/Input";
+import { Color } from "../helpers/Color";
 
 export default function Start({
   name,
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
     flex: 9,
   },
   checkboxContainer: { flexDirection: "row", marginVertical: 30 },
-  checkboxText: { marginStart: 5, color: "purple" },
+  checkboxText: { marginStart: 5, color: Color.secondary },
   buttonsContainer: { flexDirection: "row", justifyContent: "space-around" },
   buttonView: { width: "40%", margin: 5 },
 });

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, Modal } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Card from "../components/Card";
 import StyledButton from "../components/StyledButton";
+import { Color } from "../helpers/Color";
 
 export default function Game({
   name,
@@ -29,7 +30,7 @@ export default function Game({
   return (
     <Modal visible={isGameModalVisible} animationType="fade">
       <LinearGradient
-        colors={["rgba(245, 245, 245, 0.8)", "mediumorchid"]}
+        colors={[Color.backgroundLight, Color.primary]}
         style={styles.background}
       >
         <View style={styles.container}>

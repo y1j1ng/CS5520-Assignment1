@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import React from "react";
+import { Color } from "../helpers/Color";
 
 export default function Input({ label, value, onChangeText, error }) {
   return (
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   errorText: {
-    color: "black",
+    color: Color.text,
     margin: 3,
   },
 });
