@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
   checkboxContainer: { flexDirection: "row", marginVertical: 30 },
   checkboxText: { marginStart: 5, color: "purple" },
-  buttonsContainer: { flexDirection: "row" },
+  buttonsContainer: { flexDirection: "row", justifyContent: "space-around" },
   buttonView: { width: "40%", margin: 5 },
   errorText: {
     color: "black",
