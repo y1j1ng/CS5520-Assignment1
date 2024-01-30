@@ -56,7 +56,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <LinearGradient
         // Background Linear Gradient
-        colors={["rgba(245, 245, 245, 0.8)", "transparent"]}
+        colors={["rgba(245, 245, 245, 0.8)", "mediumorchid"]}
         style={styles.background}
       />
       {gameState === "start" && (
@@ -99,7 +99,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "mediumorchid",
     alignItems: "center",
     justifyContent: "center",
   },
