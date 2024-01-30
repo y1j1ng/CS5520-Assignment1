@@ -36,23 +36,29 @@ export default function Game({
             {isWinner ? (
               <View>
                 <Text style={styles.feedback}>Congrats {name}! You won!</Text>
-                <Button title="Thank You" onPress={handleFinish} />
+                <View style={styles.buttonView}>
+                  <Button title="Thank You" onPress={handleFinish} />
+                </View>
               </View>
             ) : (
               <View>
                 <Text
                   style={styles.feedback}
                 >{`Hello ${name}\nYou have chosen ${number}\nThat's not my number!\nGuess ${feedback}!\nYou have ${attempts} attempts left!`}</Text>
-                <Button
-                  title="I am done"
-                  onPress={handleFinish}
-                  color={"red"}
-                />
-                <Button
-                  title="Let Me Guess Again"
-                  onPress={handleContinue}
-                  disabled={attempts === 0}
-                />
+                <View style={styles.buttonView}>
+                  <Button
+                    title="I am done"
+                    onPress={handleFinish}
+                    color={"red"}
+                  />
+                </View>
+                <View style={styles.buttonView}>
+                  <Button
+                    title="Let Me Guess Again"
+                    onPress={handleContinue}
+                    disabled={attempts === 0}
+                  />
+                </View>
               </View>
             )}
           </Card>
@@ -79,5 +85,9 @@ const styles = StyleSheet.create({
   },
   background: {
     height: "100%",
+  },
+  buttonView: {
+    margin: 5,
+    width: "auto",
   },
 });

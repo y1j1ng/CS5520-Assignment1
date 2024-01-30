@@ -22,7 +22,9 @@ export default function Final({ isWinner, myNumber, resetGameHandler }) {
             source={require("../assets/sad_face.png")}
           />
         )}
-        <Button title="Start Again" onPress={resetGameHandler} />
+        <View style={styles.buttonView}>
+          <Button title="Start Again" onPress={resetGameHandler} />
+        </View>
       </Card>
     </View>
   );
@@ -49,5 +51,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "purple",
     textAlign: "center",
+  },
+  buttonView: {
+    margin: 5,
+    width: "auto",
   },
 });
