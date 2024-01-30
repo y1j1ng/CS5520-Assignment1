@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     justifyContent: "center",
+    height: "15%",
   },
   title: { fontSize: 25, color: "purple" },
 });
